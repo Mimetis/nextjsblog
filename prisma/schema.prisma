@@ -1,0 +1,60 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// datasource db {
+//   provider = "sqlite"
+//   url      = env("DATABASE_URL")
+// }
+datasource db {
+  provider = "sqlserver"
+  url      = env("SQL_CONNECTION_STRING")
+}
+
+model Recipe {
+  id           Int         @id @default(autoincrement())
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+  title        String      @db.VarChar(250)
+  slug         String      @unique @db.VarChar(100)
+  description  String?     @db.VarChar(MAX)
+  recipe       String?     @db.VarChar(MAX)
+  ingredients  String?     @db.VarChar(MAX)
+  calories     Int?
+  time         String?     @db.VarChar(250)
+  type         String?     @db.VarChar(100)
+  pictureUrl   String?     @db.VarChar(250)
+  thumbnailUrl String?     @db.VarChar(250)
+  blurDataUrl  String?     @db.VarChar(250)
+  published    Boolean     @default(false)
+  author       User        @relation(fields: [authorId], references: [id])
+  authorId     String      @db.VarChar(12)
+  favorites    Favorite[]
+  @@map("Recipes")
+
+}
+
+model User {
+  id         String      @id @db.VarChar(12)
+  email      String      @unique
+  name       String?     @db.VarChar(250)
+  pictureUrl String?     @db.VarChar(250)
+  recipes    Recipe[]
+  favorites  Favorite[]
+  @@map("Users")
+
+}
+
+model Favorite {
+  id       String @id @default(cuid())
+  userId   String @db.VarChar(12)
+  recipeId Int
+  recipe   Recipe @relation(fields: [recipeId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  user     User   @relation(fields: [userId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@map("Favorites")
+  @@unique([userId, recipeId])
+}
