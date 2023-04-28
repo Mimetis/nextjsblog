@@ -32,15 +32,15 @@ export default function NewRecipe() {
     const [unsplashThumbnailImage, setUnsplashThumbnailImage] = useState<unknown>();
     const [selectedThumbnailIndex, setSelectedThumbnailIndex] = useState<number>(0);
     const watchThumbnailUrl = watch("thumbnailUrl");
-    
+
     const undefinedPictureImageSrc = "https://images.unsplash.com/photo-1535488518105-67f15b7cab27?ixid=Mnw0MzY1MTd8MHwxfHNlYXJjaHwyfHx1bmRlZmluZWR8ZW58MHwwfHx8MTY4MjQyMDA3OQ&ixlib=rb-4.0.3&w=1200&h=600&q=40&fit=crop";
     const [unsplashPictureImage, setUnsplashPictureImage] = useState<unknown>();
     const [selectedPictureIndex, setSelectedPictureIndex] = useState<number>(0);
     const watchPictureUrl = watch("pictureUrl");
-    
+
     const [inputIngredientValue, setInputIngredientValue] = useState<string>("");
     const [listIngredientsItems, setListIngredientsItems] = useState<string[]>([]);
-    
+
     const watchTitle = watch("title");
     const debouncedTitle = useDebounce(watchTitle, 500);
 
@@ -175,20 +175,27 @@ export default function NewRecipe() {
     };
 
     return (
-        <form className="w-full mx-auto" onSubmit={handleSubmit(onSubmit)}>
+        <form className="w-full mx-auto text-white text-xl" onSubmit={handleSubmit(onSubmit)}>
             <div className="grid gap-4 grid-cols-2">
 
-                <div className="flex flex-wrap">
-                    <div className="w-full px-3 mb-6 ">
+                <div className="flex flex-wrap bg-gray-800 p-3">
+                    <div className="w-full px-3 mb-6 flex items-center content-center gap-3">
                         <label
                             htmlFor="title"
-                            className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
-                            Title
+                            className="block uppercase tracking-wide font-bold whitespace-nowrap">
+                            Cake name:
                         </label>
                         <input
                             type="text"
                             id="title"
-                            className="appearance-none block w-full  text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                            className="appearance-none ml-4 block w-5/6
+                            text-xl
+                            indent-2
+                            bg-gray-600  
+                            text-gray-200
+                            leading-[42px]
+                            border border-gray-600  
+                            focus:outline-none focus:bg-gray-500 focus:border-gray-500"
                             required
                             {...register("title", { required: true, maxLength: 250 })}
                         />
@@ -197,8 +204,18 @@ export default function NewRecipe() {
                         <div className="flex flex-wrap content-start items-baseline">
                             <label
                                 htmlFor="picture"
-                                className="block uppercase tracking-wide text-gray-700 text-xs font-bold self-center mr-4">
-                                Picture
+                                className="block uppercase tracking-wide font-bold">
+                                Picture:
+                            </label>
+                        </div>
+                        <div className="flex align-middle">
+                            <Image src={watchPictureUrl || undefinedPictureImageSrc} width={1200} height={450} style={{ width: '100%', height: 'auto' }} alt='recipe image' />
+                        </div>
+                        <div className="flex flex-wrap justify-center items-center">
+                            <label
+                                htmlFor="picture"
+                                className="block uppercase tracking-wide font-bold text-base ">
+                                Choose a picture:
                             </label>
                             <button onClick={(e) => selectPreviousPicture(e)} className="self-stretch mr-2">
                                 <AiFillCaretLeft size={20} color="green" className="hover:bg-gray-300" />
@@ -207,21 +224,18 @@ export default function NewRecipe() {
                                 <AiFillCaretRight size={20} color="green" className="hover:bg-gray-300" />
                             </button>
                         </div>
-                        <div className="flex align-middle">
-                            <Image src={watchPictureUrl || undefinedPictureImageSrc} width={1200} height={450} style={{ width: '100%', height: 'auto' }} alt='recipe image' />
-                        </div>
                     </div>
                     <div className="flex w-full px-3 mb-6 items-baseline">
                         <label
                             htmlFor="slug"
-                            className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
+                            className="block uppercase tracking-wide text-base font-bold mb-2">
                             Slug:
                         </label>
                         <input
                             type="text"
                             id="slug"
                             readOnly
-                            className="bg-transparent ml-3"
+                            className="bg-transparent ml-10"
                             required
                             {...register("slug")}
                         />
@@ -229,8 +243,8 @@ export default function NewRecipe() {
                     <div className="w-full px-3 mb-6 ">
                         <label
                             htmlFor="description"
-                            className="block  uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
-                            Description
+                            className="block uppercase tracking-wide text-lg font-bold mb-2">
+                            Description:
                         </label>
                         <textarea
                             id="description"
@@ -243,8 +257,8 @@ export default function NewRecipe() {
                     <div className="w-full px-3 mb-6 ">
                         <label
                             htmlFor="recipe"
-                            className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
-                            Recipe
+                            className="block uppercase tracking-wide text-lg font-bold mb-2">
+                            Recipe:
                         </label>
                         <textarea
                             id="recipe"
@@ -256,13 +270,24 @@ export default function NewRecipe() {
                     </div>
                 </div>
 
-                <div className="flex flex-wrap content-start">
+                <div className="flex flex-wrap content-start bg-gray-800">
                     <div className="w-full  px-3  mb-6">
                         <div className="flex flex-wrap content-start items-baseline">
                             <label
                                 htmlFor="title"
-                                className="block uppercase tracking-wide text-gray-700 text-xs font-bold self-center mr-4">
-                                Thumbnail
+                                className="block uppercase tracking-wide font-bold">
+                                Thumbnail:
+                            </label>
+                            
+                        </div>
+                        <div className="flex justify-center ">
+                            <Image src={watchThumbnailUrl || undefinedThumbnailImageSrc} width={200} height={130} style={{ width: 'auto', height: 'auto' }} alt='recipe image' />
+                        </div>
+                        <div className="flex flex-wrap  justify-center items-center">
+                            <label
+                                htmlFor="title"
+                                className="block uppercase tracking-wide text-xs font-bold self-center">
+                                Choose a thumbnail
                             </label>
                             <button onClick={(e) => selectPreviousThumbnail(e)} className="self-stretch mr-2">
                                 <AiFillCaretLeft size={20} color="green" className="hover:bg-gray-300" />
@@ -270,10 +295,6 @@ export default function NewRecipe() {
                             <button onClick={(e) => selectNextThumbnail(e)} className="self-stretch">
                                 <AiFillCaretRight size={20} color="green" className="hover:bg-gray-300" />
                             </button>
-
-                        </div>
-                        <div className="flex align-middle">
-                            <Image src={watchThumbnailUrl || undefinedThumbnailImageSrc} width={200} height={130} style={{ width: 'auto', height: 'auto' }} alt='recipe image' />
                         </div>
                     </div>
                     <div className="w-full px-3 mb-6 ">
@@ -282,8 +303,8 @@ export default function NewRecipe() {
                                 <div className="flex flex-wrap content-start items-baseline">
                                     <label
                                         htmlFor="title"
-                                        className="block uppercase tracking-wide text-gray-700 text-xs font-bold self-center mr-4">
-                                        Ingredients
+                                        className="block uppercase tracking-wide font-bold">
+                                        Ingredients:
                                     </label>
                                     <DialogTrigger asChild>
                                         <button className="self-stretch mr-2">

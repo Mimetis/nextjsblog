@@ -11,13 +11,8 @@ interface IActiveLinkProps {
 
 const ActiveLink: React.FunctionComponent<PropsWithChildren<IActiveLinkProps>> = (props) => {
     const pathName = usePathname()
-
     let className = pathName === props.href ? 'flex text-gray-100 font-bold' : 'flex';
-
-    return (
-        <Link href={props.href} className={className}>
-            {props.children}
-        </Link>);
+    return <Link href={props.href} className={className}>{props.children}</Link>;
 };
 
 export default ActiveLink;

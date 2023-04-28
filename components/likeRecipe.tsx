@@ -25,7 +25,8 @@ const LikeRecipe: React.FunctionComponent<{ recipeId: number, userId: string, fa
         return jsonResponse;
     }
 
-    const onClick = async () => {
+    const onClick = async (e:any) => {
+        e.preventDefault();
         const fav = await fetchLike({
             recipeId: recipeId,
             userId: userId,
@@ -38,7 +39,7 @@ const LikeRecipe: React.FunctionComponent<{ recipeId: number, userId: string, fa
 
 
     return <>
-        <button onClick={() => onClick()} >
+        <button onClick={(e) => onClick(e)} >
             {currentFavorite
                 ? <AiFillHeart color="red" size={20} />
                 : <AiOutlineHeart color="red" size={20} />
