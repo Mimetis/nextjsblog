@@ -1,16 +1,15 @@
-import { CakeIcon, Cog6ToothIcon, StarIcon } from '@heroicons/react/24/outline'
-import ActiveLink from '../components/activeLink'
+import { AiOutlineHome, AiOutlineSetting, AiFillTwitterCircle , AiFillPlusCircle, AiFillGithub } from 'react-icons/ai';
 import './globals.css'
 import Toaster from '@/components/toaster';
-
+import Link from 'next/link';
+import SearchRecipe from '@/components/searchRecipe';
 
 export const metadata = {
   title: 'Sample',
   description: 'Sample',
 }
 
-
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
@@ -22,39 +21,26 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <h1 className="text-5xl text-white font-bold">Cake Recipes</h1>
             </div>
           </header>
-          <div className="flex flex-col md:flex-row">
-            <div className="bg-gray-800 text-gray-300 md:max-w-fit md:pr-10" >
-              <nav className="md:block hidden">
-                <ul className="py-4">
-                  <li className="px-6 py-3">
-                    <ActiveLink href='/'><CakeIcon className=' mr-3 h-5 w-5 shrink-0 stroke-2 lg:h-6 lg:w-6' />Home</ActiveLink>
-                  </li>
-                  <li className="px-6 py-3">
-                    <ActiveLink href='/favorites'><StarIcon className='mr-3 h-5 w-5 shrink-0 stroke-2 lg:h-6 lg:w-6' />Favorites</ActiveLink>
-                  </li>
-                  <li className="px-6 py-3">
-                    <ActiveLink href='/settings'><Cog6ToothIcon className='mr-3 h-5 w-5 shrink-0 stroke-2 lg:h-6 lg:w-6' />Settings</ActiveLink>
-                  </li>
-                  <li className="px-6 py-3">
-                    <ActiveLink href='/ssg/1'>SSG 1</ActiveLink>
-                  </li>
-                  <li className="px-6 py-3">
-                    <ActiveLink href='/ssg/2'>SSG 2</ActiveLink>
-                  </li>
-                </ul>
-              </nav>
-              <div className="md:hidden">
-                <button className="flex items-center px-3 py-2 border rounded text-gray-500 border-gray-800 hover:text-white">
-                  <svg
-                    className="h-3 w-3 fill-current"
-                    viewBox="0 0 20 20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <title>Menu</title>
-                    <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
-                  </svg>
-                  <span className="ml-2 font-medium">Menu</span>
-                </button>
+          <div className="flex flex-col">
+            <div className="bg-gray-800 text-gray-300 pr-10" >
+              <div className="flex flex-row">
+                <Link href="/" className="flex items-center px-3 py-2 border rounded text-xl text-white  hover:text-slate-300 border-gray-800">
+                  <AiOutlineHome className='mr-2' size={28} /> Home
+                </Link>
+                <Link href={`/settings`} className="flex items-center px-3 py-2 border rounded text-xl text-white  hover:text-slate-300 border-gray-800">
+                  <AiOutlineSetting className='mr-2' size={28} /> Settings
+                </Link>
+                <SearchRecipe />
+                <Link href={`/recipes/new`} className="flex items-center px-3 py-2 border rounded text-xl text-white  hover:text-slate-300 border-gray-800">
+                  <AiFillPlusCircle className='mr-2' size={28} /> Add
+                </Link>
+                <Link href={`https://www.github.com/mimetis`} target='_blank' className="flex items-center px-3 py-2 border rounded text-xl text-white  hover:text-slate-300 border-gray-800">
+                  <AiFillGithub size={28}  /> 
+                </Link>
+                <Link href={`https://www.twitter.com/sebpertus`} target='_blank'
+                  className="flex items-center px-3 py-2 border rounded text-xl text-white  hover:text-slate-300 border-gray-800">
+                  <AiFillTwitterCircle size={30}  /> 
+                </Link>
               </div>
             </div>
             <div className="bg-gray-200 md:flex-1">
