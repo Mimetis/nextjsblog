@@ -2,7 +2,7 @@
 
 import { useDebounce } from '@/hooks/useDebounce';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { KeyboardEvent, useEffect } from 'react';
 import { ChangeEvent } from 'react';
 import { useState, useId } from 'react';
@@ -11,7 +11,8 @@ import { AiOutlineSearch } from 'react-icons/ai';
 const SearchRecipe: React.FunctionComponent = () => {
     const router = useRouter();
     const id = useId();
-    const [value, setValue] = useState<string>('');
+    const searchParams = useSearchParams()
+    const [value, setValue] = useState<string>(searchParams.get("search") || '');
     const debouncedValue = useDebounce(value, 500);
 
     const onChange = (e: ChangeEvent) => {
@@ -29,12 +30,13 @@ const SearchRecipe: React.FunctionComponent = () => {
 
     }, [debouncedValue]);
 
-    return <div className="flex items-center w-full p-[2px] ml-10 border rounded text-white  border-gray-800" >
+    return <div className="flex items-center w-full text-white" >
 
         <input id={id} type="text" value={value} placeholder='Search cakes'
-            className="appearance-none ml-4 block w-5/6
+            className="appearance-none block
                         text-xl
                         indent-2
+                        w-full
                         bg-gray-600  
                         text-gray-200 
                         leading-[42px]
@@ -44,7 +46,7 @@ const SearchRecipe: React.FunctionComponent = () => {
             onKeyDown={e => onKeyDown(e)}
         />
 
-        <AiOutlineSearch className='ml-4 mr-9' size={28} />
+        <AiOutlineSearch className='ml-4' size={28} />
 
     </div>;
 };

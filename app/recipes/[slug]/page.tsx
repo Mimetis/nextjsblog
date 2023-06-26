@@ -1,4 +1,6 @@
 import RecipeActions from '@/components/recipeActions';
+import { getUnsplashImage } from '@/lib/unsplash';
+import { UnsplashImage } from '@/lib/unsplashTypes';
 import { PrismaClient, Recipe } from '@prisma/client';
 import Image from 'next/image';
 import * as React from 'react';
@@ -24,15 +26,30 @@ const getRecipe = async (slugId: string) => {
             favorites: true,
         },
     });
+
+    console.log(recipe);
     return recipe;
 };
+
 
 const RecipeDetailsPage = async ({ params }: { params: { slug: string } }) => {
     const recipe = await getRecipe(params.slug);
 
-    function handleEdit(event): void {
-        throw new Error('Function not implemented.');
+    const thumbUnsplashPromise = recipe.thumbnailId ? getUnsplashImage(recipe.thumbnailId) : undefined;
+    const pictureUnsplashPromise = recipe.pictureId ? getUnsplashImage(recipe.pictureId) : undefined;
+
+    const result = await Promise.allSettled([thumbUnsplashPromise, pictureUnsplashPromise]);
+
+    let thumb:UnsplashImage | undefined;
+    if (result[0].status == "fulfilled" && result[0].value) {
+       thumb = result[0].value 
     }
+
+    let picture: UnsplashImage | undefined;
+    if (result[1].status == "fulfilled" && result[1].value) {
+        picture = result[1].value 
+     }
+     
 
     return (
         <>
@@ -40,11 +57,11 @@ const RecipeDetailsPage = async ({ params }: { params: { slug: string } }) => {
                 <div key={recipe.title}
                     className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
                     <div className="text-center">
-                        {recipe.thumbnailUrl &&
+                        {thumb &&
                             <Image
                                 className="inline-block h-48 w-48 rounded-full ring-2 ring-white"
-                                src={recipe.thumbnailUrl}
-                                alt=""
+                                src={thumb.urls.thumb}
+                                alt="thumbnail"
                                 width={200}
                                 height={100}
                             />}
@@ -58,7 +75,7 @@ const RecipeDetailsPage = async ({ params }: { params: { slug: string } }) => {
                         <p className="mt-4 text-gray-500" style={{ whiteSpace: "pre-wrap" }}>{recipe.description}</p>
                     </div>
                     <div className="mt-10 h-64 bg-cover bg-no-repeat bg-center"
-                        style={{ backgroundImage: `url(${recipe.pictureUrl})` }}>
+                        style={{ backgroundImage: `url(${picture?.urls?.regular})` }}>
                     </div>
                     <div className="mt-10">
                         <h2 className="text-lg font-medium text-gray-900">Ingredients</h2>

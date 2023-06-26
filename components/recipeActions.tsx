@@ -6,6 +6,7 @@ import { FaComment, FaEdit, FaHeart } from 'react-icons/fa';
 import { HiOutlinePencilAlt } from 'react-icons/hi';
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 interface IRecipeActionsProps {
     recipe: Recipe
@@ -36,7 +37,6 @@ const RecipeActions: React.FunctionComponent<{ recipeId: number, userId: string,
         const fav = await fetchLike({ recipeId: recipeId, userId: userId });
         setCurrentFavorite(fav);
         router.refresh();
-        console.log("refresh");
     }
 
 
@@ -51,9 +51,9 @@ const RecipeActions: React.FunctionComponent<{ recipeId: number, userId: string,
             <button className="px-4 py-2 bg-white hover:bg-gray-300 active:bg-gray-200 rounded-full shadow-md">
                 <FaComment className="text-blue-500" />
             </button>
-            <button className="px-4 py-2 bg-white hover:bg-gray-300 active:bg-gray-200 rounded-full shadow-md">
+            <Link href={`admin/recipes/${recipeId}`} className="px-4 py-2 bg-white hover:bg-gray-300 active:bg-gray-200 rounded-full shadow-md">
                 <FaEdit className="text-gray-500" />
-            </button>
+            </Link>
         </div>
     </>
         ;

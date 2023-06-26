@@ -19,8 +19,8 @@ const recipes = [
     calories: 340,
     time: "1 hour",
     type: "classic",
-    picture: "https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?ixid=Mnw0MzY1MTd8MHwxfHNlYXJjaHwxfHxWYW5pbGxhJTIwQ2FrZXxlbnwwfDB8fHwxNjgxNTg1NzAw&ixlib=rb-4.0.3&w=1200&h=600&q=40&fit=crop",
-    thumbnail: "https://images.unsplash.com/photo-1592773790059-bb09b7b00b56?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=Mnw0MzY1MTd8MHwxfHNlYXJjaHw1fHxWYW5pbGxhJTIwQ2FrZXxlbnwwfDB8fHwxNjgxNTg1NzAw&ixlib=rb-4.0.3&q=40&w=250",
+    picture: "vdx5hPQhXFk",
+    thumbnail: "4nwmShss9Rw",
     blur: "LNL;gG8^IVWD9GM{%Mayx_%Nxtoy"
   },
   {
@@ -44,8 +44,8 @@ const recipes = [
     calories: 380,
     time: "1 hour",
     type: "decadent",
-    picture: "https://images.unsplash.com/photo-1578985545062-69928b1d9587?ixid=Mnw0MzY1MTd8MHwxfHNlYXJjaHwxfHxDaG9jb2xhdGUlMjBDYWtlfGVufDB8MHx8fDE2ODE1ODYyNTU&ixlib=rb-4.0.3&w=1200&h=600&q=40&fit=crop",
-    thumbnail: "https://images.unsplash.com/photo-1626197036422-02ba66009f4d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=Mnw0MzY1MTd8MHwxfHNlYXJjaHw2fHxDaG9jb2xhdGUlMjBDYWtlfGVufDB8MHx8fDE2ODIzMzcxMzE&ixlib=rb-4.0.3&q=80&w=250",
+    picture: "kPxsqUGneXQ",
+    thumbnail: "ci5LV1AwCwQ",
     blur: "LHDuuh00TK9Z=|M{X9s:f+Riflx]"
 
   },
@@ -72,8 +72,8 @@ const recipes = [
     calories: 340,
     time: "1 hour and 15 minutes",
     type: "moist",
-    picture: "https://images.unsplash.com/photo-1604504573541-bb5f1c53c20f?ixid=Mnw0MzY1MTd8MHwxfHNlYXJjaHw1fHxDYXJyb3QlMjBDYWtlfGVufDB8MHx8fDE2ODE1ODkyNjU&ixlib=rb-4.0.3&w=1200&h=600&q=40&fit=crop",
-    thumbnail: "https://images.unsplash.com/photo-1531226767635-cf013616cd5b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=Mnw0MzY1MTd8MHwxfHNlYXJjaHw2fHxDYXJyb3QlMjBDYWtlfGVufDB8MHx8fDE2ODE1ODkyNjU&ixlib=rb-4.0.3&q=40&w=250",
+    picture: "roa2u7QrJn8",
+    thumbnail: "JrT61g1gw7k",
     blur: "LQL}BMaK.9oMs9ozXSae.To}t7R%"
   },
   {
@@ -97,8 +97,8 @@ const recipes = [
     calories: 400,
     time: "120 minutes",
     type: "creamy",
-    picture: "https://images.unsplash.com/photo-1533134242443-d4fd215305ad?ixid=Mnw0MzY1MTd8MHwxfHNlYXJjaHwxfHxCbHVlYmVycnklMjBDaGVlc2VjYWtlfGVufDB8MHx8fDE2ODE1ODk0MTQ&ixlib=rb-4.0.3&w=1200&h=600&q=40&fit=crop",
-    thumbnail: "https://images.unsplash.com/photo-1591540281540-e2cbd5a3e92c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=Mnw0MzY1MTd8MHwxfHNlYXJjaHwyfHxCbHVlYmVycnklMjBDaGVlc2VjYWtlfGVufDB8MHx8fDE2ODE1ODk0MTQ&ixlib=rb-4.0.3&q=40&w=250",
+    picture: "d4fd215305ad",
+    thumbnail: "IdzCSOPuPo4",
     blur: "LFHxQcR400%MD*9Z-:WWE1x]RkM{"
   },
   {
@@ -122,8 +122,8 @@ const recipes = [
     type: "classic",
     calories: 425,
     time: "1 hour 30 minutes",
-    picture: "https://images.unsplash.com/photo-1586788680434-30d324b2d46f?ixid=Mnw0MzY1MTd8MHwxfHNlYXJjaHwxfHxSZWQlMjBWZWx2ZXQlMjBDYWtlfGVufDB8MHx8fDE2ODE1ODk0ODI&ixlib=rb-4.0.3&w=1200&h=600&q=40&fit=crop",
-    thumbnail: "https://images.unsplash.com/photo-1615837197154-2e801f4bd294?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=Mnw0MzY1MTd8MHwxfHNlYXJjaHwzfHxSZWQlMjBWZWx2ZXQlMjBDYWtlfGVufDB8MHx8fDE2ODE1ODk0ODI&ixlib=rb-4.0.3&q=40&w=250",
+    picture: "EfkMkUXs0fU",
+    thumbnail: "RQYAbzjCK6k",
     blur: "LIGudr~Ve-Mx01xuXSozITxF%2tR"
   },
   {
@@ -135,8 +135,8 @@ const recipes = [
     calories: 275,
     time: "2 hours",
     type: "classic",
-    picture: "https://images.unsplash.com/photo-1678526773090-a207482f7917?ixid=Mnw0MzY1MTd8MHwxfHNlYXJjaHwzfHxCYW5hbmElMjBCcmVhZCUyMENha2V8ZW58MHwwfHx8MTY4MTU4OTc5MA&ixlib=rb-4.0.3&w=1200&h=600&q=40&fit=crop",
-    thumbnail: "https://images.unsplash.com/photo-1675712843856-ba2cb7d33f3c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=Mnw0MzY1MTd8MHwxfHNlYXJjaHw1fHxCYW5hbmElMjBCcmVhZCUyMENha2V8ZW58MHwwfHx8MTY4MTU4OTc5MA&ixlib=rb-4.0.3&q=40&w=250",
+    picture: "MtZ9L8mRKzA",
+    thumbnail: "7RzeewJzFUI",
     blur: "LbK,,100.8M{ITWFoJof.8WAa0xu"
 
   },
@@ -149,8 +149,8 @@ const recipes = [
     calories: 275,
     time: "2 hours",
     type: "classic",
-    picture: "https://images.unsplash.com/photo-1603320284194-db4276c54f0a?ixid=Mnw0MzY1MTd8MHwxfHNlYXJjaHw0fHxQdW1wa2luJTIwU3BpY2UlMjBDYWtlfGVufDB8MHx8fDE2ODE1ODk5MzY&ixlib=rb-4.0.3&w=1200&h=600&q=40&fit=crop",
-    thumbnail: "https://images.unsplash.com/photo-1508361001413-7a9dca21d08a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=Mnw0MzY1MTd8MHwxfHNlYXJjaHw1fHxQdW1wa2luJTIwU3BpY2UlMjBDYWtlfGVufDB8MHx8fDE2ODE1ODk5MzY&ixlib=rb-4.0.3&q=40&w=250",
+    picture: "7mL9de-MA4M",
+    thumbnail: "MYRG0ptGh50",
     blur: "LTFqg+fk0eR*j[nNWBTK9tWB={oz"
 
   },
@@ -163,8 +163,8 @@ const recipes = [
     calories: 400,
     time: "1 hour 15 minutes",
     type: "classic",
-    picture: "https://images.unsplash.com/photo-1497681204192-eb12c0702305?ixid=Mnw0MzY1MTd8MHwxfHNlYXJjaHwxfHxDb2NvbnV0JTIwQ2FrZXxlbnwwfDB8fHwxNjgxNTkwMDY3&ixlib=rb-4.0.3&w=1200&h=600&q=40&fit=crop",
-    thumbnail: "https://images.unsplash.com/photo-1586985289906-406988974504?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=Mnw0MzY1MTd8MHwxfHNlYXJjaHw4fHxDb2NvbnV0JTIwQ2FrZXxlbnwwfDB8fHwxNjgxNTkwMDY3&ixlib=rb-4.0.3&q=40&w=250",
+    picture: "CtrEJu5vUg0",
+    thumbnail: "Id8BO472TbY",
     blur: "LXDvTRWCIooz4Tt7W=WB.8WBn$ay"
 
   }
@@ -176,6 +176,7 @@ const prisma = new PrismaClient();
 async function seed() {
 
   // cleanup the existing database
+  await prisma.favorite.deleteMany({});
   await prisma.recipe.deleteMany({});
   await prisma.user.deleteMany({});
 
@@ -191,7 +192,6 @@ async function seed() {
 
   await Promise.all(
     recipes.map(async (recipe) => {
-      console.log(recipe);
       await prisma.recipe.create({
         data: {
           authorId: "SP",
@@ -200,12 +200,11 @@ async function seed() {
           slug: recipe.slug,
           recipe: recipe.recipe,
           calories: recipe.calories,
-          pictureUrl: recipe.picture,
-          thumbnailUrl: recipe.thumbnail,
+          pictureId: recipe.picture,
+          thumbnailId: recipe.thumbnail,
           published: true,
           time: recipe.time.toString(),
           ingredients: recipe.ingredients.join(","),
-          blurDataUrl: recipe.blur
         },
       })
     }
